@@ -1,0 +1,37 @@
+<configuration>
+    <appender name="json" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp />
+                <loggerName />
+                <mdc />
+                <logLevel />
+                <message />
+                <stackHash />
+                <stackTrace />
+            </providers>
+        </encoder>
+    </appender>
+
+    <appender name="async-json" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="json"/>
+    </appender>
+
+    <appender name="dev" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Use this if you need to debug thread related issues -->
+            <!-- <pattern>%d{HH:mm:ss.SSS} [%thread] [%-5level] [%-36.36logger{36}] - %msg%n</pattern> -->
+<!--             <pattern>%d{HH:mm:ss.SSS} [%-5level] [%-36.36logger{36}] - %msg%n</pattern>-->
+            <pattern>[%d{HH:mm:ss.SSS}] [%-5level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.http4s.server.blaze" level="INFO"/>
+    <logger name="org.http4s.blaze" level="WARN"/>
+    <logger name="org.http4s.blazecore" level="WARN"/>
+
+    <root level="${CORRELATION_LOGGING_LEVEL:-DEBUG}">
+        <appender-ref ref="${CORRELATION_LOGGING_APPENDER:-dev}"/>
+    </root>
+</configuration>
