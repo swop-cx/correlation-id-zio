@@ -2,14 +2,14 @@ import sbt._
 
 object Dependencies {
 
-  private val CatsVersion                   = "2.1.1"
-  private val CatsEffectVersion             = "2.1.4"
-  private val ZioVersion                    = "1.0.1"
-  private val ZioLoggingVersion             = "0.5.2"
-  private val ZioInteropCatsVersion         = "2.1.4.0"
+  private val CatsVersion                   = "2.2.0"
+  private val CatsEffectVersion             = "2.2.0"
+  private val ZioVersion                    = "1.0.3"
+  private val ZioLoggingVersion             = "0.5.3"
+  private val ZioInteropCatsVersion         = "2.2.0.1"
   private val CirceVersion                  = "0.13.0"
-  private val Specs2Version                 = "4.10.3"
-  private val Http4sVersion                 = "0.21.7"
+  private val Specs2Version                 = "4.10.5"
+  private val Http4sVersion                 = "0.21.8"
   private val LogbackVersion                = "1.2.3"
   private val LogstashLogbackEncoderVersion = "6.4"
 
